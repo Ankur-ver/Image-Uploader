@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            background-color: rgb(218, 49, 6);
+            height:400px;
+            max-width: 400px;
+            margin:300px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+        }
+        label{
+            background-color: brown;
+            padding:5px;
+color:white;
+        }
+        input{
+            display:none;
+        }
+        button{
+           padding:7px;
+           background-color: blue;
+           color:white;
+        }
+    </style>
+</head>
+<body>
+    <form action="/user"method="post" enctype="multipart/form-data">
+        <label for="image">Choose Image</label>
+        <input type="file" name="image"id="image">
+        <button type="submit">upload</button>
+    </form>
+    <form action="/image" method="get">
+     <button type="submit">See Images</button>
+    </form>
+</body>
+</html>

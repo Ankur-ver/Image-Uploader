@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            box-sizing: border-box;
+        }
+        header{
+            height:60px;
+            max-width:1900px;
+            width:100%;
+           background-color:rgba(0, 0, 0, 0.452);
+           display: flex;
+           align-items: center;
+           position:fixed;
+           z-index: 3;
+        }
+        
+        nav{
+            height:60px;
+            background-color: transparent;
+            width:50%;
+            display: flex;
+        }
+        nav>ul{
+            display: flex;
+            width:600px;
+            justify-content: space-around;
+        align-items: center;
+        }
+        nav a {
+            color:white;
+            text-decoration: none;
+        }
+        li{
+            color:white;
+            list-style: none;
+        }
+        header input{
+            height:30px;
+            border-radius: 8px;
+        }
+        input::placeholder{
+            text-align: center;
+            margin-left: 19px;
+        }
+        header label{
+            padding:3px;
+            border:1px solid rgba(0, 0, 0, 0.149);
+            margin:0px;
+            margin-left:40px;
+            background-color: white;
+            border-radius: 5px;
+           
+        }
+        .main{
+            width:100%;
+            height:800px;
+            position:absolute;
+        top:0px;
+        
+        margin:0px;
+        padding:0px;
+        box-sizing: border-box;
+            object-fit: contain;
+            aspect-ratio: 1;
+        text-align: center;
+          
+        }
+        img{
+            width: 100%;
+            height:100%;
+            object-fit: cover;
+        }
+        .main h1{
+            margin-top:-490px;
+            z-index:1;
+            color:white;
+            font-size: 120px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .main p{
+            color:white;
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .main button{
+            margin-top: 30px;
+            padding: 3px;
+            color: rgb(210, 13, 141);
+            border: 1px double hotpink;
+        }
+        .contact{
+            background-color: rgb(0, 0, 0);
+            position: relative;
+            top:780px;
+            height:600px
+        }
+        .page{
+            text-align: center;
+            color:white;
+            background-color:transparent;
+            height:200px;
+            display: flex;
+           justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: 2px 2px 5px rgb(42, 42, 42);
+            padding: 5px;
+        }
+        .page-content{
+            height:400px;
+            background-color: rgb(0, 0, 0);
+           max-width: 1100px;
+           margin:auto;
+           display: flex;
+           padding: 5px;
+           margin-top: -30px;
+        }
+        .page-content-1{
+            height:390px;
+            background-color: rgba(52, 51, 51, 0.885);
+            width:50%;
+            margin: 0px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .main a{
+            text-decoration: none;
+            color:hotpink;
+           
+        }
+        .call{
+            height: 48%;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+           align-items: center;
+           flex-direction: column;
+            box-shadow: 1px 0px 3px;
+            color:white
+        }
+        .call a{
+            text-align: center;
+        }
+        .chat{
+            height: 48%;
+            margin: 5px;
+            box-shadow: 1px 1px 3px;
+            display: flex;
+            justify-content: center;
+           align-items: center;
+           flex-direction: column;
+           color:white
+        }
+        .call i{
+            height:10px;
+            width:5px;
+            color:rgb(130, 130, 137)
+        }
+        .page p{
+        
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+        
+        }
+        .chat button{
+            background-color: hotpink;
+            border-radius: 6px;
+            margin-top: 10px;
+            padding: 5px;
+            width: 60px;
+        }
+        .page-content-2{
+            height: 390px;
+            width:48%;
+            text-align: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+          padding: 10px;
+          box-shadow: 0px 2px 2px 4px rgba(0, 0, 0, 0.368);
+          border-radius: 8px;
+          background-color: rgb(20, 20, 20);
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        
+        }
+        form{
+            width:80%;
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height:300px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        
+        }
+        .page-content-2 h1{
+            margin-top: 20px;
+           font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        form select{
+            margin-top: 3px;
+        }
+        form button{
+            margin-top: 5px;
+            padding: 3px;
+            width:60px
+        }
+        .heading {
+            position: relative;
+            color:black;
+            top:850px;
+            z-index:5;
+           width:50%;
+            left:36vw;
+            font-size:80px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+      
+        .content{
+            position: relative;
+            top:722px;
+            display: flex;
+            height:800px;
+            padding:30px;
+            align-items: center;
+        }
+        .component{
+            height:95%;
+            width:50%;
+            position: relative;
+            padding:0; 
+            display: flex;
+            box-shadow: 2px 2px 5px solid black;
+            background-color: black;
+        }
+        .component img{
+            object-fit: cover;
+            aspect-ratio: 1;
+        }
+        .about{
+           
+            height:95%;
+            width:50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px;
+        }
+        
+        .about p{
+            margin-top: 130px;
+        }
+        .about h1{
+            font-size: 80px;
+            margin-top: 30px;
+            margin-left: -490px;
+            z-index: 5;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .ml15 {
+            font-weight: 800;
+            font-size: 3.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+          }
+          
+          .ml15 .word {
+            display: inline-block;
+            line-height: 1em;
+          }
+        @media only screen and (max-width:877px){
+            .heading{
+              margin: auto;
+            }
+        }
+        @media only screen and (max-width:653px){
+            .contact{
+               
+                height:1040px
+            }
+            .page h1{
+                margin-top:20px;
+            }
+            .heading{
+                left:10px;
+               top:800px;
+                font-size: 60px;
+                text-align: center;
+              }
+              .heading h1{
+                font-size: 3rem;
+                
+              }
+              .call{
+                height:180px;
+        
+              }
+              .chat{
+                height:180px;
+              }
+            .page-content{
+               justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 100px;
+                height:500px
+        
+            }
+            .page-content-2{
+                width:400px;
+            }
+            .page-content-1{
+                height:400px;
+                width:400px;
+                margin-top: 120px;
+            }
+            .component{
+                margin-top: 30px;
+            }
+        
+            .main h1{
+                margin-top: -490px;
+            }
+            section{
+                padding-top:40px;
+            }
+            
+            .content{
+                flex-direction:column;
+                align-items: center;
+            }
+         .content{
+            
+            height:100%;
+          
+         }
+        
+                .about{
+                    text-align: center;
+                    margin-top: 10px;
+                    padding: 0px;
+            }
+            .about p{
+                margin-top: -7px;
+            }
+            header input{
+                width:90px
+            }
+        }
+        @media only screen and (max-width:473px){
+            .main h1{
+               
+                margin-top: -560px;
+            }
+           
+            header{
+               flex-direction: column;
+               padding: 5px;
+            }
+        
+            .contact{
+                height:1240px;
+                margin-top:-80px;
+            }
+            .page{
+                height:400px
+            }
+          
+            .heading{
+               top:760px;
+              left:10px;
+            }
+            
+            .page-content-1{
+                margin-top: 130px;
+            
+               width: 300px;
+            }
+            .page-content-2{
+                margin: 5px;
+                width: 300px;
+            }
+            .page p{
+               font-size: 10px;
+            }
+            nav{
+                width:100%;
+                
+            }
+            header label{
+                margin-left: 18px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+      
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li id="services"><a href="/image">See Images</a></li>
+                <li>Contact Us</li>
+                <li>About</li>
+            </ul>
+        </nav>
+        <div class="search">
+            <label for="search">Search</label>
+            <input type="text" placeholder="search images" id="search">
+        </div>
+    
+    </header>
+  
+    <div class="main">
+        
+        <img src="6282363.jpg" alt="">
+        <h1 class="ml15">
+            <span class="word">Web</span>
+            <span class="word">Era!</span>
+          </h1>
+        <p>experiencing the new technology</p>
+      <button> <a href="/upload">Go and Check</a></button>
+    </div>
+    <div class="contact">
+        <div class="page">
+            <h1>CONTACT US TO CONNECT AND EXPERIENCING BEST WEB ERA</h1>
+            <pre>
+             <P>      We'd love to show you how you can get more knowledge and leads.
+     increase your curiosity and inhance creativity, provide better
+     web knowledge, or all of the above! Here are a few ways to reach out.</P>
+            </pre>
+        </div>
+        <div class="page-content">
+            <div class="page-content-1">
+                <div class="call">
+                    <span> <i class="fa-thin fa-circle-phone"></i></span>
+                    <h5>Call us directly at</h5>
+                    <span>+35315124400</span>
+                    <a href="#">See all number and locations</a>
+                </div>
+                <div class="chat">
+                    <h5>Chat with out team</h5>
+                    <button>Chat</button>
+                </div>
+            </div>
+            <div class="page-content-2">
+                <h1>Book a Meeting</h1>
+                <p>To shedule time to speak with one of our sales representatives, complete the form.</p>
+                <form action="">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName">
+                    <label for="email">Email Name</label>
+                    <input type="email" id="email">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone">
+                    <label for="websiteurl">Website URL</label>
+                    <input type="text" id="websiteurl">
+                    <label for="employees"></label>
+                    <select name="employees" id="employees">
+                        <option value="Please Select" default>Please Select</option>
+                        <option value="1">2</option>
+                        <option value="1">3</option>
+                        <option value="1">4</option>
+                        <option value="1">5</option>
+                    </select>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="heading">
+          <h1>About Us</h1>
+        </div>
+        <div class="content">
+            <div class="component">
+                <img src="upload-concept-illustration_114360-1317.avif" alt="">
+            </div>
+            <div class="about">
+               
+                <P>Hey! is the chance to enhance your carrier possibilities. Lorem ipsum dolor,
+                     sit amet consectetur adipisicing elit. Ipsam, perspiciatis quam eligendi, 
+                     officia similique molestias fugiat dolores aut obcaecati doloremque distinctio. 
+                     Perferendis accusantium incidunt autem mollitia, rerum commodi ab dignissimos.
+                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti aliquid expedita dicta,
+                      inventore repudiandae quod beatae eum ut similique deleniti explicabo voluptatum cum odit
+                       cupiditate sed eaque architecto! Pariatur, necessitatibus!
+                     Eum vitae harum incidunt corporis aspernatur veniam culpa veritatis. Eos
+                      facere cum sequi omnis. Error, quaerat ad, consectetur sunt aliquid minus
+                       mollitia quam officiis molestiae sed totam a facere ea?
+                     Quidem sit quia recusandae ipsam doloremque porro animi, magnam suscipit 
+                     possimus eligendi eius eaque distinctio, tenetur quos officia facilis quam 
+                     molestiae nisi incidunt veritatis culpa asperiores labore illo iure. Cupiditate.
+                     Accusamus animi repellat neque totam repellendus facere maxime culpa harum
+                      quaerat reiciendis minima aspernatur quo voluptatem nostrum eum iusto mollitia,
+                       nisi tempore quia obcaecati fuga rem temporibus, similique quos! Maxime?
+                </P>
+            </div>
+        </div>
+     
+
+    </section>
+    <script>
+        anime.timeline({loop: true})
+        .add({
+          targets: '.ml15 .word',
+          scale: [14,1],
+          opacity: [0,1],
+          easing: "easeOutCirc",
+          duration: 800,
+          delay: (el, i) => 800 * i
+        }).add({
+          targets: '.ml15',
+          opacity: 0,
+          duration: 1000,
+          easing: "easeOutExpo",
+          delay: 1000
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding: 0px;
+        }
+        .main{
+            height:879px;
+           background-image:linear-gradient(rgba(219, 224, 224, 0.064), rgb(24, 24, 23)) ,url('6282363.jpg');
+            position: absolute;
+            width:100%;
+            background-size: cover;
+            position: absolute;
+            top: 0px;
+            z-index:-2;
+
+        }
+        header{
+            height:60px;
+            max-width:1800px;
+           background-color: transparent;
+           display: flex;
+           align-items: center;
+            background-color: rgba(0, 0, 0, 0.445);
+        }
+        nav{
+            height:60px;
+            background-color: transparent;
+            width:50%;
+            display: flex;
+        }
+        nav>ul{
+            display: flex;
+            width:500px;
+            justify-content: space-around;
+        align-items: center;
+        }
+        li{
+            color:white;
+            list-style: none;
+        }
+        a{
+            color:white;
+            text-decoration: none;
+        }
+        header input{
+            height:30px;
+            border-radius: 10px;
+        }
+        input::placeholder{
+            text-align: center;
+            margin-left: 19px;
+        }
+        header label{
+            padding:5px;
+            border:1px solid rgba(0, 0, 0, 0.149);
+            margin:0px;
+            margin-left:40px;
+            background-color: white;
+            border-radius: 4px;
+        }
+        .form{
+            height:400px;
+           max-width:1200px;
+            border:2px solid white;
+            display:flex;
+          
+           align-items: center;
+            margin:300px auto;
+            backdrop-filter: blur(8px);
+            border-radius: 19px;
+            overflow: auto;
+         
+        }
+        img{
+            height:94%;
+            width:300px;
+            margin:4px;
+            border-radius: 8px;
+        }
+       .form::-webkit-scrollbar{
+        display: none;
+       }
+       @media only screen and (max-width:541px){
+        input{
+            width:100px;
+        }
+    }
+    @media only screen and (max-width:417px){
+        input{
+            width:100px;
+        }
+        header{
+            flex-direction: column;
+        }
+        nav{
+            width:100%;
+        }
+    
+    }
+  
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+               <li><a href="/">Home</a></li>
+               <li>Services</li>
+               <li>Contect Us</li>
+               <li>About</li>
+            </ul>
+        </nav>
+        <label for="search">Search</label>
+        <input type="text" placeholder="search images" id="search">
+    </header>
+<div class="main">
+  
+        <form class="form">
+            <% if (locals.result) { %>
+                <% result.forEach((item) => { %>
+                    <img src="data:<%= item.contentType %>;base64,<%= item.imagedata.toString('base64') %>" alt="">
+                   
+                <% }) %>
+            <% } %>
+        </form>
+   
+  
+    
+</div>
+
+
+</body>
+</html>
